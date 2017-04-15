@@ -1,0 +1,118 @@
+<!-- Main Home Webpage -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/icon.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <script>
+        $(function() {
+            $('#navbar').load('nav.php');
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="images/screen6.jpg">
+                <div class="caption center-align">
+                    <h3>Welcome to Omitra</h3>
+                    <h5 class="light grey-text text-lighten-3">Find My Buddy!</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/screen2.jpg">
+                <div class="caption left-align">
+                    <h3>What you can do</h3>
+                    <h5 class="light grey-text text-lighten-3">See all available requests</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/screen1.jpg">
+                <div class="caption right-align">
+                    <h3>What you can do</h3>
+                    <h5 class="light grey-text text-lighten-3">Respond to existing requests</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/screen5.jpg">
+                <div class="caption center-align">
+                    <h3>What you can do</h3>
+                    <h5 class="light grey-text text-lighten-3">Keep track of your requests</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.slider').slider({
+                full_width: true
+            });
+        });
+    </script>
+
+
+    <center>
+        <h1>Find Your Buddy!</h1>
+        <br>
+    </center>
+    <div class="row">
+        <div class="col-md-6">
+            <br>
+            <center>
+                <h5>
+                    Require something from someplace?
+                </h5>
+                <a class="waves-effect.waves-green waves-light btn" onclick="location.href='form.php'">Submit your Request</a>
+            </center>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <center>
+                <h5>
+                    Want to carry something for someone?
+                </h5>
+                <a class="waves-effect waves-light btn" onclick="location.href='requests.php'">Search for a Request</a>
+            </center>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <center>
+                <h5>
+                    Going somewhere by train ?
+                </h5>
+                <a class="waves-effect waves-light btn" onclick="location.href='travellerform.php'">Let Others Know</a>
+            </center>
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="footer"></div>
+
+</body>
+<script type="text/javascript">
+    $(function() {
+        $('#footer').load('foot.html');
+    });
+</script>
+
+</html>

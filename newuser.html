@@ -1,0 +1,47 @@
+<!-- New User Template -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>New User</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/icon.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <script>
+        $(function() {
+            $('#navbar').load('nav.php');
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+    <div class="container">
+
+<h2>New User Form</h2>
+<form action="newuser.php" method="post">
+Name: <input type="text" name="name"><br><br>
+Phone: <input type="tel" name="phone"><br><br>
+Email: <input type="text" name="email"><br><br>
+Password: <input type="password" name="password"><br><br>
+<input type="submit" class="btn btn-large"><br><br>
+</form>
+</div>
+    <br>
+    <div id="footer"></div>
+
+</body>
+<script type="text/javascript">
+    $(function() {
+        $('#footer').load('foot.html');
+    });
+</script>
+
+</html>
