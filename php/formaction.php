@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   </div>
                   ';
 
-   $link = mysqli_connect('localhost', 'root', 'gotham', 'test_db');
+   $link = mysqli_connect('localhost', 'root', 'baks123', 'test_db');
 
     if ($link === false) {
         die('ERROR: Could not connect. '.mysqli_connect_error());
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $userid = $row['id'];
 
-        $link = new mysqli('localhost', 'root', 'gotham', 'test_db');
+        $link = new mysqli('localhost', 'root', 'baks123', 'test_db');
 
         if ($link->connect_error) {
             die('ERROR: Could not connect. '.$link->connect_error);

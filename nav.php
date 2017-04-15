@@ -26,54 +26,17 @@ include("passwords.php");
     <nav>
         <div class="nav-wrapper light-blue darken-4">
 
-            <a href="home.html" class="brand-logo" style="padding-left:10px;">OMitra</a>
+            <a href="home.html" class="brand-logo" style="padding-left:10px;">Food Monkeys</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="form.php">Submit a Request</a></li>
                 <li><a href="requests.php">See Requests</a></li>
-                <?php
-                    if (verify_username($_SESSION['logged']))
-                    {
-                        
-                        $link = mysqli_connect('localhost', 'root', 'gotham', 'test_db');
-
-                        if ($link === false) {
-                            die('ERROR: Could not connect. '.mysqli_connect_error());
-                        }
-
-                        $sql = "SELECT * FROM omitrausers WHERE phone ='".$_SESSION['logged']."'; ";
-
-                        $result = $link->query($sql);
-
-                        $row = mysqli_fetch_assoc($result);
-
-                        mysqli_close($link);
-
-                            echo '<li><div style="color:powderblue">Hello , '.$row['name'].'</div></li>';
-                            echo '<li><a onclick="logout();">Logout</a></li>';
-                    }
-                    else
-                    {
-                        echo '<li><a href="login.php">Login</a></li>';
-                    }
-                ?>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="form.php">Submit a Request</a></li>
                 <li><a href="requests.php">See Requests</a></li>
-                <?php
-                    if (verify_username($_SESSION['logged']))
-                    {
-                            echo '<li><a onclick="logout();">Logout</a></li>';
-
-                    }
-                    else
-                    {
-                        echo '<li><a href="login.php">Login</a></li>';
-                    }
-                ?>                
                 </ul>
         </div>
     </nav>

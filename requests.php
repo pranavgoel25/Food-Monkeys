@@ -2,8 +2,8 @@
 
 <?php 
 session_start(); /// initialize session 
-include("passwords.php"); 
-check_logged(); /// function checks if visitor is logged. 
+#include("passwords.php"); 
+#check_logged(); /// function checks if visitor is logged. 
 // If user is not logged the user is redirected to login.php page 
 ?> 
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ check_logged(); /// function checks if visitor is logged.
                         $("#alltag").css("display", "none");
                         $("#normaltag").css("display", "unset");
                         $('#trainnos').empty();
-                        $('#trainnos').html('Searching for train no :' + $('#tname').val());
+                        $('#trainnos').html('Searching for partner no :' + $('#tname').val());
                         $('#display').empty();
                         if (data.length == 0)
                         {   
@@ -68,9 +68,7 @@ check_logged(); /// function checks if visitor is logged.
                             $('#trainnos').html('No Available requests on this Train No.');
                         }
                         $.each(data, function(index, element) {
-                            $('#display').append($('<tr><td>' + element.train + '</td>' + '<td>' + element.name + '</td>' + '<td>' + element.reason + '</td>' + '<td>' + element.sdes + '</td>' + '<td>' + element.edes + '</td>' + '<td>' + element.sdate + '</td>' +'<td>' + element.edate + '</td>' +
-                            '<td><form action="respond.php" method="GET"><input type="hidden" name="id" value=' + element.id + '><input class="waves-effect waves-light btn" type="submit" value="respond"></form></td>' +
-                            '<td><div class="chip">' + element.status + '</div></td>' + '</tr>'));
+                            $('#display').append($('<tr><td>' + element.train + '</td>' + '<td>' + element.reason + '</td>' + '</tr>'));
                         });
                     }
                 });
@@ -148,9 +146,7 @@ check_logged(); /// function checks if visitor is logged.
     <div class="row">
         <div class="col s12">
             <ul class="tabs">
-                <li class="tab col s3"><a href="#inbox" class="active blue-text">Train No.</a></li>
-                <li class="tab col s3"><a class="blue-text" href="#unread">Pnr No.</a></li>
-                <li class="tab col s3"><a class="blue-text" href="#sent">Station</a></li>
+                <li class="tab col s3"><a href="#inbox" class="active blue-text">Partner No.</a></li>
             </ul>
         </div>
     </div>
@@ -158,11 +154,10 @@ check_logged(); /// function checks if visitor is logged.
         <div id="inbox" class="col s12">
             <br>
             <center>
-                <input type="text" id="tname" name="tname" placeholder="Enter Train No.">
+                <input type="text" id="tname" name="tname" placeholder="Enter Partner Number">
                 <input type="submit" id="specificinfo" class="waves-effect waves-light btn">
                 <br>
                 <br>
-                <button class="waves-effect waves-light btn" id="showall">Show All</button>
             </center>
             <div id="alltag" class="center" style="display:none;">
                 <h3>Showing all requests</h3></div>
@@ -172,15 +167,9 @@ check_logged(); /// function checks if visitor is logged.
                 <table class="responsive-table bordered highlight">
                     <thead>
                         <tr>
-                            <th>Train Name</th>
-                            <th>Person</th>
+                            <th>Partner Number</th>
+                            
                             <th>Reason</th>
-                            <th>Start Destination</th>
-                            <th>End Destination</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>      
-                            <th>Respond</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="display">
@@ -190,65 +179,6 @@ check_logged(); /// function checks if visitor is logged.
             <br>
             <br>
         </div>
-        <div id="unread" class="col s12"><br>
-            <input type="number" id="pnr_no" placeholder="Enter Pnr No.">
-            <input type="hidden" id="dummypnr">
-            <center><button onclick="getttrain();" class="waves-effect waves-light btn" id="pnrsearch">Submit</button>
-            </center>
-<br>
-            <div id="normaltag1" class="center" style="display:none;">
-                <h3 id="trainnos1"></h3></div>
-            <div id="data1" style="display:none;">
-                <table class="responsive-table bordered highlight">
-                    <thead>
-                        <tr>
-                            <th>Train Name</th>
-                            <th>Person</th>
-                            <th>Reason</th>
-                            <th>Start Destination</th>
-                            <th>End Destination</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>      
-                            <th>Respond</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="display2">
-                    </tbody>
-                </table>
-                </div>
-        </div>
-        <div id="sent" class="col s12"><br>
-            <input type="text" id="sstation" placeholder="Enter Start Station">
-            <input type="text" id="estation" placeholder="Enter End Station">
-            <center><button onclick="stationsearch()" class="waves-effect waves-light btn" id="stationsearch">Submit</button>            </center>
-            <br>
-            <div id="normaltag2" class="center" style="display:none;">
-                <h3 id="trainnos2"></h3></div>
-            <div id="data2" style="display:none;">
-                <table class="responsive-table bordered highlight">
-                    <thead>
-                        <tr>
-                            <th>Train Name</th>
-                            <th>Person</th>
-                            <th>Reason</th>
-                            <th>Start Destination</th>
-                            <th>End Destination</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>      
-                            <th>Respond</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="display3">
-                    </tbody>
-                </table>
-                </div>
-        </div>
-    </div>
-    <div class="center">
-        Tell others you are going by train ?
-        <a class="waves-effect.waves-green waves-light btn" onclick="location.href='travellerform.php'">Let Others Know</a>
     </div>
     <div id="footer"></div>
 </body>
