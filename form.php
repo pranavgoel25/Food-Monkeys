@@ -1,5 +1,6 @@
 <!-- Form for submitting a request  -->
 
+
 <?php 
 session_start(); /// initialize session 
 #include("passwords.php"); 
@@ -50,12 +51,6 @@ session_start(); /// initialize session
         function submission() {
             for (id = 0; id < ids.length; id++) {
                 validate(ids[id]);
-            }
-            for (id = 0; id < ids.length; id++) {
-                if (errors[ids[id].concat("Err")] != "") {
-                    alert("Please input correct details before submitting.");
-                    return;
-                }
             }
             data["which"] = "correct";
             data['type'] = $("input[type='radio'][name='grp1']:checked").val();
@@ -154,7 +149,7 @@ session_start(); /// initialize session
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3"><a class="active blue-text" href="#test1">Fulfillment ranges</a></li>
-                    <li class="tab col s3"><a class="blue-text" onclick="gettravellers();" href="#test2">Travellers</a></li>
+                  <!--  <li class="tab col s3"><a class="blue-text" onclick="gettravellers();" href="#test2">Travellers</a></li>-->
                 </ul>
             </div>
 
@@ -162,13 +157,13 @@ session_start(); /// initialize session
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="train" name="train" onblur="validate('train');buildstart();" />
-                        <label for="train">Train No. *</label>
+                        <input type="text" id="train" name="train"/>
+                        <label for="train">Partner No. *</label>
                         <span id="trainErr"></span>
                     </div>
                 </div>
 
-                <div class="row">
+                <!--<div class="row">
                     <div class="input-field col s12">
                         <select id="sdes" onchange="buildend();">
                                 <option value="" disabled selected>Choose your option</option>
@@ -203,7 +198,7 @@ session_start(); /// initialize session
                         <span id="edateErr"></span>
                     </div>
                 </div>
-
+-->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">mode_edit</i>
@@ -240,7 +235,7 @@ session_start(); /// initialize session
                     <input name="grp2" type="radio" id="r8" value="5">
                     <label for="r8">5</label>
                 </div>
-                <a class="waves-effect waves-light btn-large right" id="next1">Next</a>
+  <!--              <a class="waves-effect waves-light btn-large right" id="next1">Next</a>-->
             </div>
 
 
@@ -253,7 +248,7 @@ session_start(); /// initialize session
       </ul>
 
                 <div class="right">
-                    <a class="waves-effect waves-light btn-large" id="pre2">Previous</a>
+<!--                    <a class="waves-effect waves-light btn-large" id="pre2">Previous</a>-->
 
                     <button type="submit" onclick="submission();" class="waves-effect waves-light btn-large green">Submit</button>
                 </div>
